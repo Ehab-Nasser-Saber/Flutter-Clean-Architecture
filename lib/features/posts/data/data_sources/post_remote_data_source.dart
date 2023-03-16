@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:html';
 
 import 'package:clean_arc_app/core/error/exception.dart';
 import 'package:clean_arc_app/features/posts/data/models/post_model.dart';
