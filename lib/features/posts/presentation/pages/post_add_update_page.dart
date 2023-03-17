@@ -1,11 +1,12 @@
-import 'package:clean_arc_app/core/util/snackbar_message.dart';
-import 'package:clean_arc_app/core/widgets/loading_widget.dart';
-import 'package:clean_arc_app/features/posts/presentation/pages/posts_page.dart';
+import '../../../../core/util/snackbar_message.dart';
+import '../../../../core/widgets/loading_widget.dart';
+import 'posts_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/entities/post.dart';
 import '../bloc/add_delete_update_post/add_delete_update_post_bloc.dart';
+import '../widgets/post_add_update_page/form_widget.dart';
 
 class PostAddUpdatePage extends StatelessWidget {
   final Post? post;
@@ -17,7 +18,7 @@ class PostAddUpdatePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppbar(),
-      body: _buildBody(context),
+      body: _buildBody(),
     );
   }
 
@@ -25,7 +26,7 @@ class PostAddUpdatePage extends StatelessWidget {
     return AppBar(title: Text(isUpdatePost ? 'Edit Post' : 'Add Post'));
   }
 
-  Widget _buildBody(BuildContext context) {
+  Widget _buildBody() {
     return Center(
       child: Padding(
         padding: EdgeInsets.all(10),
@@ -50,9 +51,8 @@ class PostAddUpdatePage extends StatelessWidget {
             if (state is LoadingAddDeleteUpdatePostState) {
               return LoadingWidget();
             }
-            return SizedBox();
-            // FormWidget(
-            //     isUpdatePost: isUpdatePost, post: isUpdatePost ? post : null);
+            return FormWidget(
+                isUpdatePost: isUpdatePost, post: isUpdatePost ? post : null);
           },
         ),
       ),

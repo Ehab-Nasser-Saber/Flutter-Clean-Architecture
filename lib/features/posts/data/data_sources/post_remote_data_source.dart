@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:clean_arc_app/core/error/exception.dart';
-import 'package:clean_arc_app/features/posts/data/models/post_model.dart';
+import '../../../../core/error/exception.dart';
+import '../models/post_model.dart';
 import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
 

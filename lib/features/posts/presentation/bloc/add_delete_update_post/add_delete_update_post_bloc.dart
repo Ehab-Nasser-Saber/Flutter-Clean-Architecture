@@ -1,11 +1,11 @@
 import 'package:bloc/bloc.dart';
-import 'package:clean_arc_app/core/error/failures.dart';
-import 'package:clean_arc_app/core/strings/failures.dart';
-import 'package:clean_arc_app/core/strings/messages.dart';
-import 'package:clean_arc_app/features/posts/domain/use_cases/add_post.dart';
-import 'package:clean_arc_app/features/posts/domain/use_cases/delete_post.dart';
-import 'package:clean_arc_app/features/posts/domain/use_cases/update_post.dart';
-import 'package:clean_arc_app/features/posts/presentation/bloc/posts/posts_bloc.dart';
+import '../../../../../core/error/failures.dart';
+import '../../../../../core/strings/failures.dart';
+import '../../../../../core/strings/messages.dart';
+import '../../../domain/use_cases/add_post.dart';
+import '../../../domain/use_cases/delete_post.dart';
+import '../../../domain/use_cases/update_post.dart';
+import '../posts/posts_bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
@@ -34,12 +34,12 @@ class AddDeleteUpdatePostBloc
         emit(LoadingAddDeleteUpdatePostState());
         final failureOrDoneMessage = await updatePost(event.post);
         emit(_eitherDoneMessageOrErrorState(
-            failureOrDoneMessage, DELETE_SUCCESS_MESSAGE));
+            failureOrDoneMessage, UPDATE_SUCCESS_MESSAGE));
       } else if (event is DeletePostEvent) {
         emit(LoadingAddDeleteUpdatePostState());
         final failureOrDoneMessage = await deletePost(event.postId);
         emit(_eitherDoneMessageOrErrorState(
-            failureOrDoneMessage, UPDATE_SUCCESS_MESSAGE));
+            failureOrDoneMessage, DELETE_SUCCESS_MESSAGE));
       }
     });
   }

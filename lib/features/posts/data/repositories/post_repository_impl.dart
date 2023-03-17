@@ -1,13 +1,13 @@
-import 'package:clean_arc_app/core/error/exception.dart';
-import 'package:clean_arc_app/core/network/network_info.dart';
-import 'package:clean_arc_app/features/posts/data/models/post_model.dart';
-import 'package:clean_arc_app/features/posts/domain/entities/post.dart';
-import 'package:clean_arc_app/core/error/failures.dart';
-import 'package:clean_arc_app/features/posts/domain/repositories/posts_repository.dart';
 import 'package:dartz/dartz.dart';
 
+import '../../../../core/error/exception.dart';
+import '../../../../core/error/failures.dart';
+import '../../../../core/network/network_info.dart';
+import '../../domain/entities/post.dart';
+import '../../domain/repositories/posts_repository.dart';
 import '../data_sources/post_local_data_source.dart';
 import '../data_sources/post_remote_data_source.dart';
+import '../models/post_model.dart';
 
 typedef Future<Unit> DeleteOrUpdateOrAddPost();
 
@@ -42,8 +42,7 @@ class PostsRepositoryImpl implements PostsRepository {
 
   @override
   Future<Either<Failure, Unit>> addPost(Post post) async {
-    final PostModel postModel =
-        PostModel(id: post.id, title: post.title, body: post.body);
+    final PostModel postModel = PostModel(title: post.title, body: post.body);
     return await _getMessage(() {
       return remoteDataSource.addPost(postModel);
     });

@@ -1,4 +1,4 @@
-import 'package:clean_arc_app/features/posts/presentation/pages/post_add_update_page.dart';
+import 'post_add_update_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/widgets/loading_widget.dart';

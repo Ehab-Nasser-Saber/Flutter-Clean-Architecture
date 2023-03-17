@@ -1,6 +1,6 @@
-import 'package:clean_arc_app/core/error/failures.dart';
 import 'package:dartz/dartz.dart';
 
+import '../../../../core/error/failures.dart';
 import '../entities/post.dart';
 
 abstract class PostsRepository {

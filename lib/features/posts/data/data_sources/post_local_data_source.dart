@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:clean_arc_app/core/error/exception.dart';
 import 'package:dartz/dartz.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../core/error/exception.dart';
 import '../models/post_model.dart';
 
 abstract class PostLocalDataSource {
